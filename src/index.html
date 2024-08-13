@@ -523,7 +523,6 @@
           name="Zimbabwe" id="zw" />
   </svg>
 </div>
-
 <div class="column2">
   <div id="country-info">Country Information</div>
   <div id="countryName">Name</div>
@@ -533,8 +532,90 @@
   <div id="countryLong">Longitude</div>
   <div id="countryLat">Latitude</div>
 
+  <form id="countryForm">
+    <div>Enter Country Code Below:</div>
+    <input type="text" id="countryInput" placeholder="Enter Country Code">
+    <button type="submit">Submit</button>
+  </form>
+
 </div>
+<script>
+  const countryInfo = document.getElementById('country-info');
+  const paths = document.querySelectorAll('path');
 
+  paths.forEach(path => {
+    path.addEventListener('mouseenter', () => {
+      path.style.fill = "red"
+    });
+    path.addEventListener('mouseleave', () => {
+      path.style.fill = "black"
+    });
+    path.addEventListener("click", ()=>{
+      path.style.fill = "grey"
+      async function dataGet(){
+        let url = 'https://api.worldbank.org/v2/country/'+path.id+'?format=json'
+        let response = await fetch(url);
+        let info = await response.json();
+        let infoPath = info[1];
 
+        let countryName = infoPath[0].name;
+        document.getElementById('countryName').innerText = countryName;
+
+        let countryCapital = infoPath[0].capitalCity;
+        document.getElementById('countryCapitol').innerText = countryCapital;
+
+        let countryRegion = infoPath[0].region.value;
+        document.getElementById('countryRegion').innerText = countryRegion;
+
+        let countryIncome = infoPath[0].incomeLevel.value;
+        document.getElementById('countryIncome').innerText = countryIncome;
+
+        let countryLong = infoPath[0].longitude;
+        document.getElementById('countryLong').innerText = countryLong;
+
+        let countryLatitude = infoPath[0].latitude;
+        document.getElementById('countryLat').innerText = countryLatitude;
+        console.log(info);
+        console.log(infoPath);
+        console.log(countryCapital);
+      };
+      dataGet();
+    } )
+  });
+  document.getElementById('countryForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const countryName = document.getElementById('countryInput').value;
+    dataGetSearch(countryName);
+  });
+  async function dataGetSearch(countryName) {
+    let url = 'https://api.worldbank.org/v2/country/' + countryName + '?format=json';
+    let response = await fetch(url);
+    let info = await response.json();
+    let infoPath = info[1];
+
+    let countryNameSearch = infoPath[0].name;
+    document.getElementById('countryName').innerText = countryNameSearch;
+
+    let countryCapitalSearch = infoPath[0].capitalCity;
+    document.getElementById('countryCapitol').innerText = countryCapitalSearch;
+
+    let countryRegionSearch = infoPath[0].region.value;
+    document.getElementById('countryRegion').innerText = countryRegionSearch;
+
+    let countryIncomeSearch = infoPath[0].incomeLevel.value;
+    document.getElementById('countryIncome').innerText = countryIncomeSearch;
+
+    let countryLongSearch = infoPath[0].longitude;
+    document.getElementById('countryLong').innerText = countryLongSearch;
+
+    let countryLatitudeSearch = infoPath[0].latitude;
+    document.getElementById('countryLat').innerText = countryLatitudeSearch;
+
+    console.log(info);
+    console.log(infoPath);
+    console.log(countryCapital);
+
+  }
+</script>
 </body>
 </html>
