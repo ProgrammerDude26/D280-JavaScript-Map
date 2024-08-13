@@ -1,0 +1,25 @@
+*{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: lightgrey;
+}
+.column1{
+  float: left;
+  width: 65%;
+  color: black;
+}
+header{
+  font-style: oblique;
+  text-align: center;
+  margin: 20px;
+  border-style: groove;
+}
+div{
+  border: double;
+}
+button{
+  color: black;
+  background-color: darkgrey;
+}
+button:hover{
+  color: lightgrey;
+}
