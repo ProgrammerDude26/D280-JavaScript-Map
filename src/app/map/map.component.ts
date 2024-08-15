@@ -28,3 +28,4 @@ export class MapComponent {
     this.incomeLevel = '';
     this.longitude = '';
     this.latitude = '';}}
+
