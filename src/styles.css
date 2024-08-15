@@ -2,19 +2,27 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: lightgrey;
 }
+header{
+  font-style: oblique;
+  text-align: center;
+  margin: 0;
+  border-style: groove;
+}
 .column1{
   float: left;
   width: 65%;
   color: black;
+  margin-top: 2%;
+  border-style: inset;
 }
-header{
-  font-style: oblique;
-  text-align: center;
-  margin: 20px;
-  border-style: groove;
+.column2 {
+  float: right;
+  width: 34%;
+  margin-top: 2%;
+  border-style: inset;
 }
-div{
-  border: double;
+td{
+  border: inset;
 }
 button{
   color: black;
@@ -23,10 +31,7 @@ button{
 button:hover{
   color: lightgrey;
 }
-.column2 {
-  float: right;
-  width: 34%;
-}
-td{
-  border: double;
+h2{
+  text-align: center;
+  margin: 5px;
 }

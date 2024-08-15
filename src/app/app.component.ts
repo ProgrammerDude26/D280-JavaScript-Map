@@ -13,4 +13,3 @@ import {MapComponent} from "./map/map.component";
 export class AppComponent {
   title = 'D280JSProject';
 }
-
