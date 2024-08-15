@@ -18,7 +18,7 @@ export class MapComponent {
   latitude: string ;
   data: any= [];
   dataPath: any= [];
-  currCountryCode: string = '';
+  currCountryCode: string = 'ua';
   private httpClient = inject(HttpClient);
 
   constructor(private elementRef: ElementRef) {
@@ -38,6 +38,10 @@ private ngAfterViewInit() {
    });
  });
 }
+  private handleClick(pathID: string) {
+    this.currCountryCode = pathID;
+    this.fetchData(this.currCountryCode);
+  }
 
 private displayInfo(infoFromApi: any){
   this.name = infoFromApi[1][0].name;
@@ -45,10 +49,17 @@ private displayInfo(infoFromApi: any){
   this.region = infoFromApi[1][0].region.value;
   this.incomeLevel = infoFromApi[1][0].incomeLevel.value;
   this.longitude = infoFromApi[1][0].longitude;
-  this.longitude = infoFromApi[1][0].latitude;
+  this.latitude = infoFromApi[1][0].latitude;
 }
 
-  private handleClick(id: string) {
-
+  private fetchData(pathID: string): void {
+    let url = 'https://api.worldbank.org/v2/country/'+this.currCountryCode+'?format=json';
+    this.httpClient.get(url)
+      .subscribe((posts) => {
+        this.data = posts;
+        this.displayInfo(this.data);
+      });
   }
 }
+
+

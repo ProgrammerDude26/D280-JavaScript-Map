@@ -24,12 +24,21 @@ header{
 td{
   border: inset;
 }
+svg path{
+  fill: black;
+}
+svg path:hover{
+  cursor: pointer;
+  fill: darkred;
+  transition: 0.3s;
+}
 button{
   color: black;
   background-color: darkgrey;
 }
 button:hover{
   color: lightgrey;
+  background-color: black;
 }
 h2{
   text-align: center;
