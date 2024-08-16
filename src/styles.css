@@ -1,36 +1,35 @@
 *{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background-color: lightgrey;
+  background-color: black;
+  color: white;
 }
 header{
   font-style: oblique;
   text-align: center;
-  margin: 0;
-  border-style: groove;
+  margin: 5px;
+  border-bottom: inset;
 }
 .column1{
   float: left;
   width: 65%;
   color: black;
   margin-top: 2%;
-  border-style: inset;
 }
 .column2 {
   float: right;
   width: 34%;
   margin-top: 2%;
-  border-style: inset;
 }
-td{
-  border: inset;
+svg{
+  background-color: transparent;
 }
 svg path{
-  fill: black;
+  fill: lightgrey;
 }
 svg path:hover{
   cursor: pointer;
   fill: darkred;
-  transition: 0.3s;
+  transition: 0.1s;
 }
 button{
   color: black;
@@ -43,4 +42,8 @@ button:hover{
 h2{
   text-align: center;
   margin: 5px;
+}
+p{
+  font-size: 10pt;
+  text-align: center;
 }
