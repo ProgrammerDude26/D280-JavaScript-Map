@@ -57,5 +57,3 @@ private displayInfo(infoFromApi: any){
       });
   }
 }
-
-
