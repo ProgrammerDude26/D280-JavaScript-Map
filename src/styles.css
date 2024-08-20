@@ -31,14 +31,6 @@ svg path:hover{
   fill: darkred;
   transition: 0.1s;
 }
-button{
-  color: black;
-  background-color: darkgrey;
-}
-button:hover{
-  color: lightgrey;
-  background-color: black;
-}
 h2{
   text-align: center;
   margin: 5px;
